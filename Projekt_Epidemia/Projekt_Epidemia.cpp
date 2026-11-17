@@ -36,7 +36,22 @@ int main() { // początek funkcji main()
 	int total2 = susceptible2 + infected2 + recovered2; // populacja liczy 100 osób
 
 	// funkcja wyświetla stan populacji
-	showPopulation(day, susceptible, infected, recovered);
-	
+	//showPopulation(day, susceptible, infected, recovered);
+
+	// menue design
+	int choice;
+	cout << "=== Epidemic Simulator ===" << endl;
+	cout << "1. Simulate next day" << endl;
+	cout << "2. Change model parameters" << endl;
+	cout << "3. Exit" << endl;
+	cout << "Your choice: ";
+	cin >> choice;
+
+
+
+
+
+	// pętla sterująca programem: while (warunek) {...}
+
 } // koniec funkcji main()
 
