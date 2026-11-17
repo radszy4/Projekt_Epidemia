@@ -4,13 +4,23 @@
 using namespace std;
 
 // prototypy funkcji:
-// prototyp funkcji showPopulation wyświetlającej stan populacji
+// prototyp funkcji showPopulation: funkcja wyświetla stan populacji
 void showPopulation(int day, int susceptible, int infected, int recovered) {
 	cout << "\nDay: " << day << endl;
 	cout << "Susceptible: " << susceptible << endl;
 	cout << "Infected: " << infected << endl;
 	cout << "Recovered: " << recovered << endl;
 	cout << "Total: " << susceptible + infected + recovered << endl;
+}
+// prototyp funkcji menue: funkcja wyświetla menue
+void menue() {
+	int option;
+	cout << "=== Epidemic Simulator ===" << endl;
+	cout << "1. Simulate next day" << endl;
+	cout << "2. Change model parameters" << endl;
+	cout << "3. Exit" << endl;
+	cout << "Your choice: ";
+	cin >> option;
 }
 
 int main() { // początek funkcji main()
@@ -40,7 +50,7 @@ int main() { // początek funkcji main()
 	// funkcja wyświetla stan populacji
 	//showPopulation(day, susceptible, infected, recovered);
 
-	// menue design
+	// wyświetl menue:
 	int option;
 	cout << "=== Epidemic Simulator ===" << endl;
 	cout << "1. Simulate next day" << endl;
@@ -56,15 +66,16 @@ int main() { // początek funkcji main()
 		break;
 
 	case 2:
-		cout << "You have chosen option 2";
+		cout << "\nYou have chosen option 2" << endl;
 		break;
 
 	case 3:
 		return 0;
 
 	default:
-		cout << "You haven't chossen any given option";
-		break;
+		cout << "\nYou haven't chosen any given option." << endl; // komunikat
+		cout << "Choose again\n" << endl;
+		menue(); // wyświetla menue ponownie
 	} // koniec switch()
 
 	// pętla sterująca programem: while (warunek) {...}
