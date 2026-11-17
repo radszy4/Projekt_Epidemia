@@ -10,7 +10,7 @@ void showPopulation(int day, int susceptible, int infected, int recovered) {
 	cout << "Susceptible: " << susceptible << endl;
 	cout << "Infected: " << infected << endl;
 	cout << "Recovered: " << recovered << endl;
-	cout << "Total: " << susceptible + infected + recovered << endl;
+	cout << "Total: " << susceptible + infected + recovered << "\n" << endl;
 }
 // prototyp funkcji menue: funkcja wyświetla menue
 void menue() {
@@ -22,6 +22,15 @@ void menue() {
 	cout << "Your choice: ";
 	cin >> option;
 }
+// PODLEGA DALSZEJ PRACY, TO WZÓR UTWORZONY NA BAZIE showPopulation
+// prototyp funkcji simulateDay: funkcja oblicza nowe zakażenia i nowe uzdrowienia, aktualizuje liczebność grup i zwiększa dzień o jeden
+void simulateDay(int day, int susceptible, int infected, int recovered, double infectionRate, double recoveryRate) {
+	cout << "\nDay: " << ++day << endl;
+	cout << "Susceptible: " << susceptible - (infectionRate * infected) << endl;
+	cout << "Infected: " << infected + (infectionRate * infected) - (recoveryRate * infected) << endl;
+	cout << "Recovered: " << recovered + (recoveryRate * infected) << endl;
+	cout << "Total: " << susceptible + infected + recovered << "\n" << endl;
+}
 
 int main() { // początek funkcji main()
 
@@ -29,7 +38,6 @@ int main() { // początek funkcji main()
 	int susceptible = 80; // podatni - mogą być zarażeni
 	int infected = 10; // zarażeni - mogą być uleczeni
 	int recovered = 10; // uleczeni - odporni, nie mogą być zarażeni
-	int total = susceptible + infected + recovered; // populacja licząca 100 osób
 	int day = 0; // licznik dni
 
 	// współczynniki zarażeń i uleczeń
@@ -62,7 +70,8 @@ int main() { // początek funkcji main()
 	// obsługa menue
 	switch (option) { // początek switch()
 	case 1:
-		showPopulation(day, susceptible, infected, recovered);
+		showPopulation(day, susceptible, infected, recovered); // wyświetla stan populacji w konsoli
+		simulateDay(day, susceptible, infected, recovered, infectionRate, recoveryRate);
 		break;
 
 	case 2:
@@ -78,7 +87,7 @@ int main() { // początek funkcji main()
 		menue(); // wyświetla menue ponownie
 	} // koniec switch()
 
-	// pętla sterująca programem: while (warunek) {...}
+	// NA KONIEC ZPIĄĆ WSZYSTKO pętlą sterująca programem: while (warunek) {...}
 
 } // koniec funkcji main()
 
