@@ -5,12 +5,12 @@ using namespace std;
 
 // prototypy funkcji:
 // prototyp funkcji showPopulation wyświetlającej stan populacji
-void showPopulation(int day, int susceptible, int infected, int recovered, int total) {
-		cout << "Day: " << day << endl;
-		cout << "Susceptible: " << susceptible << endl;
-		cout << "Infected: " << infected << endl;
-		cout << "Recovered: " << recovered << endl;
-		cout << "Total: " << total << endl;
+void showPopulation(int day, int susceptible, int infected, int recovered) {
+	cout << "Day: " << day << endl;
+	cout << "Susceptible: " << susceptible << endl;
+	cout << "Infected: " << infected << endl;
+	cout << "Recovered: " << recovered << endl;
+	cout << "Total: " << susceptible + infected + recovered << endl;
 }
 
 int main() { // początek funkcji main()
@@ -35,10 +35,8 @@ int main() { // początek funkcji main()
 	int recovered2 = recovered + newlyRecovered; // całkowita liczba uleczonych
 	int total2 = susceptible2 + infected2 + recovered2; // populacja liczy 100 osób
 
-	// wywołanie funkcji showPopulation
+	// funkcja wyświetla stan populacji
+	showPopulation(day, susceptible, infected, recovered);
 	
-	// output - test
-	cout << "Wywolanie danych bezposrednio ze zmiennych:\n" << susceptible2 << "\n" << infected2 << "\n" << recovered2 << "\n" << total2 << "\n";
-
 } // koniec funkcji main()
 
