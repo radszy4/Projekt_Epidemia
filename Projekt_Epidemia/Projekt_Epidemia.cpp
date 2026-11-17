@@ -6,7 +6,7 @@ using namespace std;
 // prototypy funkcji:
 // prototyp funkcji showPopulation wyświetlającej stan populacji
 void showPopulation(int day, int susceptible, int infected, int recovered) {
-	cout << "Day: " << day << endl;
+	cout << "\nDay: " << day << endl;
 	cout << "Susceptible: " << susceptible << endl;
 	cout << "Infected: " << infected << endl;
 	cout << "Recovered: " << recovered << endl;
@@ -26,6 +26,7 @@ int main() { // początek funkcji main()
 	double infectionRate = 0.20; // zarażenia: 20% z zarażonych
 	double recoveryRate = 0.10; // uzdrowienia: 10% z zarażonych
 
+	/*
 	// zmienne reprezentujące zmiany
 	int newlyInfected = infectionRate * infected; // warunek(ni <= s) - liczba nowo zakażonych osób na początku dnia
 	int newlyRecovered = recoveryRate * infected; // liczba nowo uleczonych osób na początku dnia
@@ -34,22 +35,37 @@ int main() { // początek funkcji main()
 	int infected2 = infected + newlyInfected - newlyRecovered; // całkowita liczba zakażonych
 	int recovered2 = recovered + newlyRecovered; // całkowita liczba uleczonych
 	int total2 = susceptible2 + infected2 + recovered2; // populacja liczy 100 osób
+	*/
 
 	// funkcja wyświetla stan populacji
 	//showPopulation(day, susceptible, infected, recovered);
 
 	// menue design
-	int choice;
+	int option;
 	cout << "=== Epidemic Simulator ===" << endl;
 	cout << "1. Simulate next day" << endl;
 	cout << "2. Change model parameters" << endl;
 	cout << "3. Exit" << endl;
 	cout << "Your choice: ";
-	cin >> choice;
+	cin >> option;
 
+	// obsługa menue
+	switch (option) { // początek switch()
+	case 1:
+		showPopulation(day, susceptible, infected, recovered);
+		break;
 
+	case 2:
+		cout << "You have chosen option 2";
+		break;
 
+	case 3:
+		return 0;
 
+	default:
+		cout << "You haven't chossen any given option";
+		break;
+	} // koniec switch()
 
 	// pętla sterująca programem: while (warunek) {...}
 
