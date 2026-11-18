@@ -25,12 +25,18 @@ void menue() {
 // PODLEGA DALSZEJ PRACY, TO WZÓR UTWORZONY NA BAZIE showPopulation
 // prototyp funkcji simulateDay: funkcja oblicza nowe zakażenia i nowe uzdrowienia, aktualizuje liczebność grup i zwiększa dzień o jeden
 void simulateDay(int day, int susceptible, int infected, int recovered, double infectionRate, double recoveryRate) {
+	// utworzyc nowe zmienne, np. int sus i potem edytowac globalne za pomoca tych nowych
 	cout << "\nDay: " << ++day << endl;
 	cout << "Susceptible: " << susceptible - (infectionRate * infected) << endl;
 	cout << "Infected: " << infected + (infectionRate * infected) - (recoveryRate * infected) << endl;
 	cout << "Recovered: " << recovered + (recoveryRate * infected) << endl;
 	cout << "Total: " << susceptible + infected + recovered << "\n" << endl;
 }
+
+/*
+zmienne globalne: przepisac zmienne wyjsciowe
+int susceptible
+*/
 
 int main() { // początek funkcji main()
 
